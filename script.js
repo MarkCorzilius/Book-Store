@@ -103,3 +103,4 @@ let books = [
     ],
   },
 ];
+console.log(books[0]);
