@@ -103,9 +103,3 @@ let books = [
     ],
   },
 ];
-
-console.log(
-  books.filter((element) => {
-    return element["liked" == true];
-  })
-);

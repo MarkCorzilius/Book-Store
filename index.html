@@ -4,6 +4,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BookStore</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/bookIcon.png" />
+
+    <script src="script.js"></script>
+    <script src="./scripts/templates.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/standard.css" />
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <h1>Bookstore</h1>
+      <h3>grab a book of your choice!</h3>
+    </header>
+
+    <!-- CONTENT: START -->
+    <main class="main_part">
+      <content class="content">
+        <div class="content_template">
+          <h2 class="book_title">Atomic Habits</h2>
+          <hr class="divider" />
+          <div class="book_div">
+            <img class="book" src="./assets/icons/bookIcon.png" alt="book" />
+          </div>
+          <hr class="divider" />
+          <div class="book_info_section">
+            <div class="price_and_likes">
+              <div>24,99€</div>
+              <div class="likes_and_amountOfIt">
+                <span class="amount_of_likes">999</span>
+                <img
+                  class="like_button"
+                  src="./assets/icons/likeIconNotUsed.png"
+                  alt="likes"
+                />
+              </div>
+            </div>
+            <div class="deep_infos">
+              <div class="keys">
+                <p>author</p>
+                <p>published year</p>
+                <p>genre</p>
+              </div>
+              <div class="values">
+                <p>: James Clear</p>
+                <p>: 2018</p>
+                <p>: Self-Help</p>
+              </div>
+            </div>
+            <hr class="divider" />
+          </div>
+          <div class="comments_section">
+            <h3 class="comments_title">Comments:</h3>
+            <output class="comments_block"></output>
+            <div class="input_and_sendingButton">
+              <input type="text" />
+              <img
+                class="airplane_button"
+                src="./assets/icons/paperAirplaneButton.png"
+                alt="send"
+              />
+            </div>
+          </div>
+        </div>
+      </content>
+    </main>
+    <!-- CONTENT: END -->
+
+    <footer class="footer">
+      <a target="_blank" href="https://icons8.com/icon/66627/facebook-like"
+        >Like</a
+      >
+      icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    </footer>
+  </body>
 </html>
