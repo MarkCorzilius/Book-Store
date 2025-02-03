@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-height: 650px;
 }
 .divider {
   color: rgb(128, 128, 128);
@@ -38,9 +39,9 @@
   color: white;
 }
 .book {
-  height: 96px;
+  height: 64px;
   width: auto;
-  margin: 20px 0px 20px;
+  margin: 15px 0px 15px;
 }
 .book_div {
   width: 100%;
@@ -55,11 +56,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 280px);
 }
 .book_info_section {
   display: flex;
   flex-direction: column;
-  margin: 20px 0px 20px;
+  margin: 10px 0px 20px;
   width: 100%;
 }
 .like_button {
@@ -84,7 +86,7 @@
 .deep_infos {
   display: flex;
   gap: 16px;
-  margin-top: 24px;
+  margin-top: 8px;
   margin-left: 20px;
 }
 .keys {
@@ -93,16 +95,53 @@
 .values {
   color: rgb(175, 175, 175);
 }
-.input_and_sendingButton {
-  display: flex;
-  align-items: center;
-}
 .airplane_button {
   height: 24px;
   width: auto;
 }
 .comments_title {
   color: white;
-  align-self: left;
   margin-left: 20px;
+}
+.message_box {
+  display: flex;
+  align-items: center;
+  bottom: 10px;
+
+  gap: 16px;
+}
+.overlay_bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: white;
+  justify-content: space-between;
+  height: 100%;
+}
+.overlay_bottom_title {
+  align-self: flex-start;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+.money_amount {
+  color: rgb(236, 99, 9);
+}
+.overlay_comments {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+  width: 100%;
+}
+.title_and_comments {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 16px;
+  width: 100%;
 }
