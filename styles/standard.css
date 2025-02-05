@@ -9,12 +9,32 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
-body::-webkit-scrollbar {
-  display: none;
-}
+
 input {
   border: none;
   outline: none;
   height: 24px;
   width: 300px;
+}
+body::-webkit-scrollbar {
+  width: 10px; /* Set scrollbar width */
+}
+
+body::-webkit-scrollbar-track {
+  background: #000000; /* Light violet background */
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(67, 36, 72); /* Deep violet scrollbar */
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgb(55, 29, 59); /* Darker violet on hover */
+}
+.header {
+  position: sticky;
+  top: 0px;
+  z-index: 10;
 }

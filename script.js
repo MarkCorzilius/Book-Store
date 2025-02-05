@@ -103,3 +103,12 @@ let books = [
     ],
   },
 ];
+
+function renderDialogs() {
+  let dialogRef = document.getElementById("main_part");
+  dialogRef.innerHTML = "";
+
+  for (let dialogIndex = 0; dialogIndex < books.length; dialogIndex++) {
+    dialogRef.innerHTML += getDialogTemplate();
+  }
+}
