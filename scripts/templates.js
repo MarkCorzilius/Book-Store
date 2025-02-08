@@ -1,7 +1,10 @@
-function getDialogTemplate() {
-  return `<content id="content" class="content">
+function getBooksTemplate(bookIndex) {
+  let book = books[bookIndex];
+  let comments = getCommentsTemplate(bookIndex);
+
+  let bookTemplate = `<content id="content" class="content">
         <div class="content_template">
-        <h2 class="book_title">Atomic Habits</h2>
+        <h2 class="book_title">${book.name}</h2>
         <hr class="divider" />
         <div class="book_div">
           <img class="book" src="./assets/icons/bookIcon.png" alt="book" />
@@ -9,10 +12,10 @@ function getDialogTemplate() {
         <hr class="divider" />
         <div class="book_info_section">
           <div class="price_and_likes">
-            <div class="money_amount">24,99€</div>
+            <div class="money_amount">${book.price + " €"}</div>
             <div class="likes_and_amountOfIt">
-              <span class="amount_of_likes">999</span>
-              <img
+              <span class="amount_of_likes">${book.likes}</span>
+              <img id="likeIcon${bookIndex}" onclick="changeLikeIcon(${bookIndex})"
                 class="like_button"
                 src="./assets/icons/likeIconNotUsed.png"
                 alt="likes"
@@ -26,9 +29,9 @@ function getDialogTemplate() {
               <p>genre</p>
             </div>
             <div class="values">
-              <p>: James Clear</p>
-              <p>: 2018</p>
-              <p>: Self-Help</p>
+              <p>: ${book.author}</p>
+              <p>: ${book.publishedYear}</p>
+              <p>: ${book.genre}</p>
             </div>
           </div>
           <hr class="divider" />
@@ -37,11 +40,11 @@ function getDialogTemplate() {
           <div class="title_and_comments">
             <h3 class="overlay_bottom_title">Comments:</h3>
             <div class="overlay_comments">
-              <div class="users">
-                <div>Mark</div>
+              <div id='users' class="users">
+              ${comments.usersTemplate}
               </div>
-              <div class="messages">
-                <p>good book</p>
+              <div id='messages' class="messages">
+              ${comments.messagesTemplate}
               </div>
             </div>
           </div>
@@ -56,4 +59,5 @@ function getDialogTemplate() {
         </div>
       </div>
      </content>`;
+  return bookTemplate;
 }

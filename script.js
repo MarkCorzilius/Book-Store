@@ -3,7 +3,7 @@ let books = [
     name: "Think and Grow Rich",
     author: "Napoleon Hill",
     likes: 2000,
-    liked: true,
+    liked: false,
     price: 17.95,
     publishedYear: 1937,
     genre: "Self-Help",
@@ -45,7 +45,7 @@ let books = [
     name: "Eloquent JavaScript, 3rd Edition",
     author: "Marijn Haverbeke",
     likes: 1200,
-    liked: true,
+    liked: false,
     price: 25.0,
     publishedYear: 2018,
     genre: "Programming",
@@ -65,7 +65,7 @@ let books = [
     name: "Atomic Habits",
     author: "James Clear",
     likes: 2500,
-    liked: true,
+    liked: false,
     price: 18.0,
     publishedYear: 2018,
     genre: "Self-Help",
@@ -104,11 +104,49 @@ let books = [
   },
 ];
 
-function renderDialogs() {
-  let dialogRef = document.getElementById("main_part");
-  dialogRef.innerHTML = "";
+function renderBooks() {
+  let bookRef = document.getElementById("main_part");
+  bookRef.innerHTML = "";
 
-  for (let dialogIndex = 0; dialogIndex < books.length; dialogIndex++) {
-    dialogRef.innerHTML += getDialogTemplate();
+  for (let bookIndex = 0; bookIndex < books.length; bookIndex++) {
+    bookRef.innerHTML += getBooksTemplate(bookIndex);
   }
 }
+
+function changeLikeIcon(bookIndex) {
+  let book = books[bookIndex];
+  let icon = document.getElementById(`likeIcon${bookIndex}`);
+
+  if (book.liked) {
+    icon.src = "./assets/icons/likeIconUsed.png";
+    book.likes--;
+  } else {
+    icon.src = "./assets/icons/likeIconNotUsed.png";
+    book.likes++;
+  }
+  book.liked = !book.liked;
+}
+
+function getCommentsTemplate(bookIndex) {
+  let book = books[bookIndex];
+  usersTemplate = "";
+  messagesTemplate = "";
+
+  for (
+    let commentIndex = 0;
+    commentIndex < book.comments.length;
+    commentIndex++
+  ) {
+    let comment = book.comments[commentIndex];
+    usersTemplate += `<p class='users_template'><strong>${comment.name}:</strong></p>`;
+    messagesTemplate += `<p class='messages_template'>${comment.comment}</p>`;
+  }
+  return {
+    usersTemplate: usersTemplate,
+    messagesTemplate: messagesTemplate,
+  };
+}
+//iterate through books
+//iterate through comments of each book
+//iterate through comment of all comments of each book
+//append comments to html section

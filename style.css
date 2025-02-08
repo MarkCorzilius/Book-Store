@@ -72,6 +72,7 @@
 .like_button {
   height: 40px;
   width: auto;
+  cursor: pointer;
 }
 .price_and_likes {
   display: flex;
@@ -87,6 +88,7 @@
 }
 .amount_of_likes {
   margin-top: 10px;
+  color: red;
 }
 .deep_infos {
   display: flex;
@@ -135,10 +137,10 @@
 .overlay_comments {
   overflow-y: scroll;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   height: 150px;
   width: 100%;
+  gap: 40px;
 }
 .title_and_comments {
   width: 100%;
@@ -149,4 +151,12 @@
   padding-right: 40px;
   margin-bottom: 16px;
   width: 100%;
+}
+.users_template {
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+.messages_template {
+  font-size: 12px;
+  margin-bottom: 40px;
 }
