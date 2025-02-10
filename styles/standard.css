@@ -15,6 +15,7 @@ input {
   outline: none;
   height: 24px;
   width: 300px;
+  margin-top: 16px;
 }
 body::-webkit-scrollbar {
   width: 10px; /* Set scrollbar width */

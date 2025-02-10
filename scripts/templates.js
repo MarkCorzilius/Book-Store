@@ -1,8 +1,6 @@
 function getBooksTemplate(bookIndex) {
   let book = books[bookIndex];
-  let comments = getCommentsTemplate(bookIndex);
-
-  let bookTemplate = `<content id="content" class="content">
+  let booksTemplate = `<content id="content" class="content">
         <div class="content_template">
         <h2 class="book_title">${book.name}</h2>
         <hr class="divider" />
@@ -12,10 +10,10 @@ function getBooksTemplate(bookIndex) {
         <hr class="divider" />
         <div class="book_info_section">
           <div class="price_and_likes">
-            <div class="money_amount">${book.price + " €"}</div>
+            <div class="money_amount">${book.price + "€"}</div>
             <div class="likes_and_amountOfIt">
               <span class="amount_of_likes">${book.likes}</span>
-              <img id="likeIcon${bookIndex}" onclick="changeLikeIcon(${bookIndex})"
+              <img id="likeIcon" onclick="changeLikeIcon()"
                 class="like_button"
                 src="./assets/icons/likeIconNotUsed.png"
                 alt="likes"
@@ -41,16 +39,12 @@ function getBooksTemplate(bookIndex) {
             <h3 class="overlay_bottom_title">Comments:</h3>
             <div class="overlay_comments">
               <div id='users' class="users">
-              ${comments.usersTemplate}
-              </div>
-              <div id='messages' class="messages">
-              ${comments.messagesTemplate}
-              </div>
+              ${getCommentsTemplate(bookIndex)}
             </div>
           </div>
           <div class="message_box">
-            <input type="text" />
-            <img
+            <input id="inputForMessage" type="text" />
+            <img id='sendingButton' onclick="addComments()"
               class="airplane_button"
               src="./assets/icons/paperAirplaneButton.png"
               alt="send"
@@ -59,5 +53,22 @@ function getBooksTemplate(bookIndex) {
         </div>
       </div>
      </content>`;
-  return bookTemplate;
+  return booksTemplate;
+}
+
+function getCommentsTemplate(bookIndex) {
+  let book = books[bookIndex];
+  let commentTemplate = "";
+
+  for (
+    let commentIndex = 0;
+    commentIndex < book.comments.length;
+    commentIndex++
+  ) {
+    let comment = book.comments[commentIndex];
+    commentTemplate += `<div class="comment_and_user"> <strong class="users_template">${
+      "[" + comment.name + "]"
+    }</strong> <p class="messages_template">${comment.comment}</div>`;
+  }
+  return commentTemplate;
 }
