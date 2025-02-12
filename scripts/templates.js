@@ -12,8 +12,10 @@ function getBooksTemplate(bookIndex) {
           <div class="price_and_likes">
             <div class="money_amount">${book.price + "€"}</div>
             <div class="likes_and_amountOfIt">
-              <span class="amount_of_likes">${book.likes}</span>
-              <img id="likeIcon" onclick="changeLikeIcon()"
+              <span id="counter${bookIndex}" class="amount_of_likes" onclick="renderCounter(${bookIndex})">${
+    book.likes
+  }</span>
+              <img id="likeIcon${bookIndex}" onclick="toggleLikeIcon(${bookIndex})"
                 class="like_button"
                 src="./assets/icons/likeIconNotUsed.png"
                 alt="likes"
@@ -68,7 +70,7 @@ function getCommentsTemplate(bookIndex) {
     let comment = book.comments[commentIndex];
     commentTemplate += `<div class="comment_and_user"> <strong class="users_template">${
       "[" + comment.name + "]"
-    }</strong> <p class="messages_template">${comment.comment}</div>`;
+    }</strong> <p class="messages_template">${comment.comment}</p></div>`;
   }
   return commentTemplate;
 }

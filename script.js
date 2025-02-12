@@ -6,3 +6,31 @@ function renderBooks() {
     bookRef.innerHTML += getBooksTemplate(bookIndex);
   }
 }
+
+// Render counter
+function renderCounter(bookIndex) {
+  let counterRef = document.getElementById("counter" + bookIndex);
+  counterRef.innerHTML = "";
+
+  counterRef.innerHTML = `${book[bookIndex].likes}`;
+}
+
+// Change like icon
+function toggleLikeIcon(bookIndex) {
+  let book = books[bookIndex];
+  let likeIcon = document.getElementById("likeIcon" + bookIndex);
+  book.liked
+    ? (likeIcon.src = `./assets/icons/likeIconNotUsed.png`)
+    : (likeIcon.src = `./assets/icons/likeIconUsed.png`);
+
+  book.liked = !book.liked;
+
+  toggleLike(bookIndex);
+}
+
+// change counter
+function toggleLike(bookIndex) {
+  let book = books[bookIndex];
+
+  !book.liked ? book.likes++ : book.likes--;
+}
