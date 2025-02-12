@@ -12,7 +12,14 @@ function renderCounter(bookIndex) {
   let counterRef = document.getElementById("counter" + bookIndex);
   counterRef.innerHTML = "";
 
-  counterRef.innerHTML = `${book[bookIndex].likes}`;
+  counterRef.innerHTML = `${books[bookIndex].likes}`;
+}
+
+// change counter
+function toggleLike(bookIndex) {
+  let book = books[bookIndex];
+
+  book.liked ? book.likes++ : book.likes--;
 }
 
 // Change like icon
@@ -26,11 +33,5 @@ function toggleLikeIcon(bookIndex) {
   book.liked = !book.liked;
 
   toggleLike(bookIndex);
-}
-
-// change counter
-function toggleLike(bookIndex) {
-  let book = books[bookIndex];
-
-  !book.liked ? book.likes++ : book.likes--;
+  renderCounter(bookIndex);
 }
