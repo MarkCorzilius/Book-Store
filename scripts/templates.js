@@ -17,7 +17,11 @@ function getBooksTemplate(bookIndex) {
   }</span>
               <img id="likeIcon${bookIndex}" onclick="toggleLikeIcon(${bookIndex})"
                 class="like_button"
-                src="./assets/icons/likeIconNotUsed.png"
+                src="${
+                  book.liked
+                    ? "./assets/icons/likeIconUsed.png"
+                    : "./assets/icons/likeIconNotUsed.png"
+                }"
                 alt="likes"
               />
             </div>
@@ -40,13 +44,13 @@ function getBooksTemplate(bookIndex) {
           <div class="title_and_comments">
             <h3 class="overlay_bottom_title">Comments:</h3>
             <div class="overlay_comments">
-              <div id='users' class="users">
+              <div id='users${bookIndex}' class="users">
               ${getCommentsTemplate(bookIndex)}
             </div>
           </div>
           <div class="message_box">
-            <input id="inputForMessage" type="text" />
-            <img id='sendingButton' onclick="addComments()"
+            <input id="inputForMessage${bookIndex}" type="text" placeholder="your message" />
+            <img onmouseover=this.src="./assets/icons/paperAirplaneButtonBlue.png" onmouseout=this.src="./assets/icons/paperAirplaneButton.png" id='sendingButton' onclick="addComments(${bookIndex})"
               class="airplane_button"
               src="./assets/icons/paperAirplaneButton.png"
               alt="send"

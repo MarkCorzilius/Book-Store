@@ -1,3 +1,8 @@
+function init() {
+  getFromLocalStorage();
+  renderBooks();
+}
+
 function renderBooks() {
   let bookRef = document.getElementById("main_part");
   bookRef.innerHTML = "";
@@ -5,6 +10,7 @@ function renderBooks() {
   for (let bookIndex = 0; bookIndex < books.length; bookIndex++) {
     bookRef.innerHTML += getBooksTemplate(bookIndex);
   }
+  saveToLocalStorage();
 }
 
 // Render counter
@@ -34,4 +40,20 @@ function toggleLikeIcon(bookIndex) {
 
   toggleLike(bookIndex);
   renderCounter(bookIndex);
+  saveToLocalStorage();
+}
+
+function addComments(bookIndex) {
+  let book = books[bookIndex];
+  let inputRef = document.getElementById("inputForMessage" + bookIndex);
+  inputValueRef = inputRef.value;
+  inputRef.value = "";
+
+  if (!inputValueRef) {
+    alert("error 404");
+    return;
+  }
+  book.comments.unshift({ name: senderName, comment: inputValueRef });
+  saveToLocalStorage();
+  renderBooks();
 }
